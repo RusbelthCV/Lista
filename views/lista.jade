@@ -1,0 +1,18 @@
+html
+    head
+        title Tasks
+        link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+    body
+        div(class = "container mt-5")
+            div(class = "row")
+                ul(class = "list-group")
+                    each tarea,index  in lista 
+                        li(class = "list-group-item")  
+                            a(class = "close" href = "/todo/eliminar/#{index}") X 
+                            span(class = "mr-4") #{tarea}
+            div(class = "row mt-2")
+                form(action = "/todo/add" method = "POST")
+                    div(class = "form-group mt-2")
+                        label(for = "tarea") Tarea: 
+                        input(id = "tarea" type = "text" class = "form-control" name = "tarea" required)
+                    button(class = "btn btn-primary" type = "submit") To Do
